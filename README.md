@@ -9,7 +9,6 @@
   - [Table 5: Dept_Emp](#table-5-dept_emp)
   - [Table 6: Salaries](#table-6-salaries)
 - [Data Analysis](#data-analysis)
-- [Getting Started](#getting-started)
 ## Overview
 Welcome to the Pewlett Hackard Employee Database Project! As a newly hired data engineer at Pewlett Hackard, you're embarking on a research project focused on the employees who worked at the company during the 1980s and 1990s. The project aims to design and create a SQL database to store and analyze data extracted from six CSV files, the only remnants of the company's employee database from that era.
 
