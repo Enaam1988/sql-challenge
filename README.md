@@ -86,4 +86,55 @@ In this section, we provide detailed information about the database tables used 
   - salary (INT): The salary amount associated with the employee.
 - **Relationships**:
   - Foreign Key: emp_no references Employees.emp_no.
+## Data Analysis   
+## Sample Data Analysis
+
+In this section, we will provide a sample of the data analysis conducted on the database tables.
+
+### Example 1: List the employee number, last name, first name, sex, and salary of each employee.
+
+**SQL Query:**
+SELECT  emp.emp_no,
+        emp.last_name,
+        emp.first_name,
+        emp.sex,
+        sal.salary
+FROM employees as emp
+    LEFT JOIN salaries as sal
+    ON (emp.emp_no = sal.emp_no)
+ORDER BY emp.emp_no;
+
+Sample Result:
+| emp_no  | last_name   | first_name | sex | salary |
+| ------- | ----------  | ---------- | --- | ------ |
+| 10001   | Facello     | Georgi     | M   | 60117  |
+| 10002   | Simmel      | Bezalel    | F   | 65828  |
+| 10003   | Bamford     | Parto      | M   | 40006  |
+| 10004   | Koblick     | Chirstian  | M   | 40054  |
+| 10005   | Maliniak    | Kyoichi    | M   | 78228  |
+| 10006   | Preusig     | Anneke     | F   | 40000  |
+| 10007   | Zielinski   | Tzvetan    | F   | 56724  |
+
+### Example 2: List the first name, last name, and hire date for the employees who were hired in 1986.
+**SQL Query:**
+
+SELECT first_name, last_name, hire_date
+FROM employees
+WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
+
+Sample Result:
+
+| first_name  | last_name   | hire_date  |
+| ----------- | ----------  | ---------- |
+| Eran        | Cusworth    | 1986-11-14 |
+| Bojan       | Zallocco    | 1986-10-14 |
+| Nevio       | Demizu      | 1986-05-18 |
+| Ziva        | Vecchi      | 1986-07-03 |
+| Mohit       | Speek       | 1986-01-14 |
+| Qunsheng    | Speer       | 1986-02-13 |
+| Dines       | Encarnacion | 1986-08-02 |
+
+
+
+
 
