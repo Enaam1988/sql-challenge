@@ -22,3 +22,68 @@ This project involves three main components:
 2. **Data Engineering:** Once the table schemas are defined, the next step is to create these tables in a SQL database and import the data from the provided CSV files into these tables.
 
 3. **Data Analysis:** With the data successfully imported, the project concludes with a series of data analysis tasks. SQL queries will be used to extract insights, answer questions, and perform various analyses on the employee data.
+## Database Tables
+
+In this section, we provide detailed information about the database tables used in this project, including their columns and relationships.
+
+### Table 1: Titles
+
+- **Table Name**: Titles
+- **Columns**:
+  - title_id (Primary Key, VARCHAR, 10): A unique identifier for each title.
+  - title (VARCHAR, 50): The title name.
+- **Relationships**: 
+  - None
+
+### Table 2: Employees
+
+- **Table Name**: Employees
+- **Columns**:
+  - emp_no (Primary Key, INT): A unique identifier for each employee.
+  - emp_title_id (VARCHAR, 10, Foreign Key to Titles.title_id): The title associated with the employee.
+  - birth_date (DATE): The employee's date of birth.
+  - first_name (VARCHAR, 50): The employee's first name.
+  - last_name (VARCHAR, 50): The employee's last name.
+  - sex (CHAR, 1): The employee's gender.
+  - hire_date (DATE): The date the employee was hired.
+- **Relationships**:
+  - Foreign Key: emp_title_id references Titles.title_id.
+
+### Table 3: Departments
+
+- **Table Name**: Departments
+- **Columns**:
+  - dept_no (Primary Key, VARCHAR, 10): A unique identifier for each department.
+  - dept_name (VARCHAR, 50): The name of the department.
+- **Relationships**:
+  - None
+
+### Table 4: Dept_Manager
+
+- **Table Name**: Dept_Manager
+- **Columns**:
+  - emp_no (Primary Key, INT, Foreign Key to Employees.emp_no): The unique identifier for an employee who manages a department.
+  - dept_no (Primary Key, VARCHAR, 10, Foreign Key to Departments.dept_no): The unique identifier for the department managed by the employee.
+- **Relationships**:
+  - Foreign Key: emp_no references Employees.emp_no.
+  - Foreign Key: dept_no references Departments.dept_no.
+
+### Table 5: Dept_Emp
+
+- **Table Name**: Dept_Emp
+- **Columns**:
+  - emp_no (Primary Key, INT, Foreign Key to Employees.emp_no): The unique identifier for an employee working in a department.
+  - dept_no (Primary Key, VARCHAR, 10, Foreign Key to Departments.dept_no): The unique identifier for the department where the employee works.
+- **Relationships**:
+  - Foreign Key: emp_no references Employees.emp_no.
+  - Foreign Key: dept_no references Departments.dept_no.
+
+### Table 6: Salaries
+
+- **Table Name**: Salaries
+- **Columns**:
+  - emp_no (Primary Key, INT, Foreign Key to Employees.emp_no): The unique identifier for an employee's salary record.
+  - salary (INT): The salary amount associated with the employee.
+- **Relationships**:
+  - Foreign Key: emp_no references Employees.emp_no.
+
